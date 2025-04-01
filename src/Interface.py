@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser()
 # Help is what is displayed if using the help command
 # Choices are possible inputs, throws error if input differs
 
-parser.add_argument("-m", "--method", help="Call Euler method. Default method is implicit", choices=["I", "E", "i", "e"], default = "I")
+parser.add_argument("-m", "--method", help="Call Euler method. Default method is implicit", choices=["I", "E", "i", "e", "si", "SI"], default = "I")
 parser.add_argument("dT", type=float, help="Timestep")
 parser.add_argument("-IG1", "--initial_guess1", type=float, help="First initial gues", default = 0)
 parser.add_argument("-IG2", "--initial_guess2", type=float, help="Second initial gues", default = 0)
@@ -23,6 +23,9 @@ args = parser.parse_args()
 if args.method.upper() == "E":
     print("Explicit method is used")
     Function.explicit_euler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)
+elif args.method.upper() == "SI":
+    print("Semi-implicit method is used")
+    Function.semi_implicit_euler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)    
 else:
     print("Implicit method is used")
     Function.implicit_euler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)

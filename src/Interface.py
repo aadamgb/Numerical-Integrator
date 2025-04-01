@@ -1,5 +1,5 @@
 import argparse
-import FunctionV3 as Function
+import ODE 
 
 # Initialize argument parser
 parser = argparse.ArgumentParser()
@@ -22,10 +22,10 @@ args = parser.parse_args()
 # Check which flag was used
 if args.method.upper() == "E":
     print("Explicit method is used")
-    Function.explicit_euler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)
+    ODE.ExplicitEuler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)
 elif args.method.upper() == "SI":
     print("Semi-implicit method is used")
-    Function.semi_implicit_euler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)    
+    ODE.SemiImplicitEuler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)    
 else:
     print("Implicit method is used")
-    Function.implicit_euler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)
+    ODE.ImplicitEuler(args.initial_guess1, args.initial_guess2, int(args.FT / args.dT), args.dT)

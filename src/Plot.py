@@ -1,6 +1,6 @@
 from os import listdir
 from os.path import isfile, join
-from FunctionV3 import plotThings, placeToSave
+from ODE import plotThings, placeToSave
 import sys
 
 # Plot the data from a given fileName
